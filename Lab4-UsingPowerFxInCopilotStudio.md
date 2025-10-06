@@ -13,8 +13,8 @@ You have identified that a good starting point would be to build a custom AI age
 In this lab, you will do the following:
 
 - Create a custom AI agent using Copilot Studio.
-- Add a custom topic that can answer questions about Contacts stored in the Dataverse table.
-- Create a custom prompt that can detect when it is a Contact's birthday and generate an email draft to send to them.
+- Add a custom topic that can manually generate an email draft to send to a Contact, based on their birthday.
+- Create a custom prompt that can be orchestrated from the topic created above, to handle the email draft generation.
 - Implement the orchestration of the custom prompt, based on a defined schedule.
 - Test the new AI agent and custom prompt.
 
@@ -84,6 +84,28 @@ This lab will take approximately 30 minutes to complete.
 14. Leave the **Contact Management Agent** open if you plan to continue to Exercise 2. Otherwise, you can close the browser tab.
 
 ## Exercise 2: Add a Custom Topic
+
+1. If you closed the **Contact Management Agent** in Exercise 1, navigate back to the [Power Apps Maker Portal](https://make.powerapps.com), open the **Wingtip Toys PP Solution** solution and then open the **Contact Management Agent**.
+
+2. On the **Contact Management Agent** page, click on **Topics** and then **+ Add a topic** -> **From blank**:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_1.png)
+
+3. Rename the new topic to `Generate Birthday Email`:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_2.png)
+
+4. Provide a description for the topic in the **Describe what the topic does** input:
+
+    ```
+    Topic that users can invoke to generate a birthday email draft for a contact, containing a fun fact about their birthday.
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_3.png)
+
+5. Click on **Save** to save your changes so far:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_4.png)
 
 TBC
 
