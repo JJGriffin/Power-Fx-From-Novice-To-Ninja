@@ -272,7 +272,104 @@ This lab will take approximately 30 minutes to complete.
 
 ## Exercise 3: Create a Custom Prompt
 
-TBC
+1. You should still have the **Generate Birthday Email** topic open from Exercise 2. If not, navigate back to the [Power Apps Maker Portal](https://make.powerapps.com), open the **Wingtip Toys PP Solution** solution and then open the **Contact Management Agent**. From there, open the **Generate Birthday Email** topic.
+2. Under the message node created in step 36 of Exercise 2, click on the **+** icon, select **Add a tool** and then select **New prompt**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_1.png)
+
+3. In the **Create a prompt** dialog, rename the prompt to `Birthday Email Draft Generator`:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_2.png)
+
+4. In the **Instructions** input, paste in the following text:
+
+    ```
+    Generate a birthday greeting that can be sent out via email to a Contact for a company called WingTip Toys, that is structured as follows:
+
+    - Take the following first name {Formula} and as part of the initial greeting, generate an interesting fact regarding the name.    
+    - Wish {Contact Name} a happy birthday and then proceed to present 1-3 short, interesting facts regarding their current birthday, which is {Contact Birthday}
+    - Close the email by thanking {Contact Name} for their continued business
+
+    Output the results as a JSON object, that stores both the email subject (emailSubject) and the text of the email (emailText).
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_3.png)
+
+5. There are several placeholder values in the above text that need to be replaced. First, highlight `{Contact Name}` in the instructions and click on **+ Add content**:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_4.png)
+
+6. The placeholder will be replaced with a slash and additional options will appear. Select **Text**:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_5.png)
+
+7. In the dialog that appears, populate the fields as follows and then click on **Close**:
+    - **Name**: `inptContactName`
+    - **Sample data**: `John Smith`
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_6.png)
+
+8. Repeat steps 5-7 to create a second content input to replace `{Contact Birthday}` in the instructions, using the following configuration:
+    - **Name**: `inptContactBirthday`
+    - **Sample data**: `1990-03-21`
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_7.png)
+
+9. Next, highlight `{Formula}` in the instructions, click on **+ Add content** and then select **Power Fx**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_8.png)
+
+10. In the formula dialog, enter the following details and then click on **Close**:
+    - **Name**: `Get First Name`
+    - **Formula**: `First(Split(Input.inptContactName, " "))`
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_9.png)
+
+11. Highlight the final placeholder for `{Contact Name}` in the instructions, delete, press the `/` key, select the **In your prompt** option and then select **inptContactName**:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_10.png)
+
+12. Your prompt instructions should now resemble the screenshot below.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_11.png)
+
+13. Let's proceed to test the prompt to verify it's working as expected. Click on **Test**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_12.png)
+
+14. After a few moments, the prompt should return a response. The response should look similar to the screenshot below:
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_13.png)
+
+> [!TIP]
+> Responses from Large Language Models (LLMs) are non-deterministic, so your response may differ from the above screenshot - in terms of the greeting, the facts returned and so on. As long as the response is in JSON format and contains both an `emailSubject` and `emailText` property, then the prompt is working as expected.
+
+15. Click on **Save** to save your custom prompt and to return back to the topic designer.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_14.png)
+
+16. Your custom prompt should now be visible within the topic designer, but needs to be configured with the correct inputs. For the **inptContactBirthday** input, click on the elipses (...) icon, select **Formula** and then enter the following formula in the formula bar before clicking on **Insert**:
+
+    ```
+    Text(Topic.varContactBirthday, "yyyy-mm-dd")
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_15.png)
+
+17. Repeat step 16 for the **inptContactName** input, but instead, select the **varContactName** variable.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_16.png)
+
+18. Under **Outputs**, click on **Select a variable** and then **Create a new variable**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_17.png)
+
+19. Select the newly created **Var1** variable and rename it to `varPromptResponse`.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E3_18.png)
+
+20. Save your changes so far by clicking on **Save**.
+21. Leave the topic designer open, as we will continue working within it in Exercise 4.
 
 ## Exercise 4: Finalise Topic Configuration
 
