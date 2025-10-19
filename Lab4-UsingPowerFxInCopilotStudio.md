@@ -16,7 +16,7 @@ In this lab, you will do the following:
 - Add a custom topic that can manually generate an email draft to send to a Contact, based on their birthday.
 - Create a custom prompt that can be orchestrated from the topic created above, to handle the email draft generation.
 - Finalise the topic configuration by taking the email draft and sending it (for the purposes of this lab, we will send the email to our own account).
-- Test agent and custom prompt, before publishing into the demo website.
+- Test your agent and custom prompt, before publishing it for the first time.
 
 This lab will take approximately 30 minutes to complete.
 
@@ -373,10 +373,138 @@ This lab will take approximately 30 minutes to complete.
 
 ## Exercise 4: Finalise Topic Configuration
 
-TBC
+1. You should still have the **Generate Birthday Email** topic open from Exercise 3. If not, navigate back to the [Power Apps Maker Portal](https://make.powerapps.com), open the **Wingtip Toys PP Solution** solution and then open the **Contact Management Agent**. From there, open the **Generate Birthday Email** topic.
+2. Under the prompt node created in Exercise 3, click on the **+** icon, select **Add an action** and then select **Send a message**.
+3.  In the **Send a message** action, enter the following message:
+
+    ```
+    Here's the draft of the email. Take a look!
+
+    **Subject**
+
+    {Text(ParseJSON(Topic.varPromptResponse.text).emailSubject)}
+​
+    **Email**
+    
+    {Text(ParseJSON(Topic.varPromptResponse.text).emailText)}
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_1.png)
+
+> [!TIP]
+> You may need to click away into the designer pane for the message node to recognize the Power Fx expression and for your screen to resemble the above screenshot.
+
+4. Click on the **+** icon under the message node created in the previous step and select **Ask a question**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_2.png)
+
+5. In the **Ask a question** action, configure the properties as follows:
+    - **Message**: `Would you like to send the email?`
+    - **Identify**: Ensure **Multiple choice options** is selected
+    - **Options for user**: Click on **+ New option** twice to create two options, and then configure as follows:
+        - Option 1: `Yes`
+        - Option 2: `No` 
+    - **Save user response as**: Click on **Var1** and then rename the variable to `varSendEmail`
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_3.png)
+
+6. Click on the **+** icon under the **varSendEmail is equal to No** branch and then select **Send a message**.
+7. In the **Send a message** action, enter the following message:
+
+    ```
+    Okay! No email will be sent.
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_4.png)
+
+8. Click on the **+** icon under the **varSendEmail is equal to Yes** branch, select **Add a tool** and then **Connector**. Search for and select the **Send an email (V2)** action from the **Office 365 Outlook** connector.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_5.png)
+
+9. If a connection is not automatically created, click the chevron and then select **Create new connection**. Login using your lab environment credentials. Once a connection has been successfully established, click on **Submit**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_6.png)
+
+10. Configure the **Send an email (V2)** action as follows, by selecting each of the relevant **Inputs**. You may need to select the elipses (...) icon and then select **Formula** to enter the Power Fx expressions:
+    - **To**: Enter your own email address (for testing purposes)
+    - **Subject**: `Text(ParseJSON(Topic.varPromptResponse.text).emailSubject)`
+    - **Body**: `Text(ParseJSON(Topic.varPromptResponse.text).emailText)`
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_7.png)
+
+11. Click on the **+** icon under the **Send an email (V2)** action and then select **Send a message**.
+12. In the **Send a message** action, enter the following message:
+
+    ```
+    Super! The email was sent successfully 🚀
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E4_8.png)
+
+13. Click on **Save** to save all your changes.
+14. Leave the topic designer open, as we will start to test it in the final exercise.
 
 ## Exercise 5: Test the AI Agent
 
-TBC
+1. You should still have the **Generate Birthday Email** topic open from Exercise 4. If not, navigate back to the [Power Apps Maker Portal](https://make.powerapps.com), open the **Wingtip Toys PP Solution** solution and then open the **Contact Management Agent**. From there, open the **Generate Birthday Email** topic.
+2. Open a new browser tab and navigate to the [Power Apps Maker Portal](https://make.powerapps.com). Ensure you are in the same developer environment you have been using throughout this lab.
+3. Click on **Apps** from the left-hand navigation menu and then open the **Wingtip Toys Account Management** app you created in the earlier labs.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_1.png)
+
+4. In the app, navigate to the **Contacts** page using the left-hand navigation menu and select any Contact record. In this example, we will use **Abagail Wolters**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_2.png)
+
+5. Click on the **Details** tab and then update the **Birthday** field to today's date, while retaining the year thats currently entered. This will allow us to test the birthday email generation functionality. Save your changes to the record.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_3.png)
+
+6. Close the current browser tab to return to the **Contact Management Agent** topic designer.
+7. Click on **Test** to open the test pane and then type on and send the following question. Replace the **{Contact Name}** placeholder with the name of the Contact you updated in step 5.
+
+    ```
+    Get the birthday for {Contact Name} and generate a birthday email for them.
+    ```
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_4.png)
+
+8. You will need to provide consent for the Dataverse MCP Server. Click on **Allow** to proceed.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_5.png)
+
+9. After a few moments, the topic should execute and you should start to see the various messages and draft email appearing in the test pane. Review the contents of the email to ensure it meets your expectations. When you're satified, type in **Yes** and hit **Enter**.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_6.png)
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_7.png)
+
+10. You will need to provide consent for the Office 365 Outlook connector. Click on **Allow** to proceed.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_8.png)
+
+11. After a few moments, you should see a confirmation message that the email was sent successfully.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_9.png)
+
+12. Navigate to your email inbox and verify that you have received the birthday email. It might take several minutes for the email to arrive.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_10.png)
+
+13. Continue to test the topic by updating other Contacts' birthdays to today's date and repeating steps 7-12. You can also test the scenario where a Contact does not have a birthday defined or where the birthday is not the current day, to verify that the topic handles this as expected.
+14. Once you are satisfied that the topic is working as expected, click on **Publish** in the top-right corner of the screen to publish your agent for the first time.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_11.png)
+
+15. In the **Publish this agent** dialog, click on **Publish** to confirm. After a few moments, your agent will be published.
+
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_12.png)
+
+## Further Challenges
+
+The purpose of this lab has been to show you how Power Fx can be used within Copilot Studio and custom AI Builder prompts, as well as to illustrate the innovative capabilities on offer currently with Microsoft Copilot. To further enhance your learning, attempt to complete the following challenges:
+- Are there any other additional fields from the Contact table that you could incorporate into the birthday email draft generation prompt to make it more personalized?
+- Currently, the agent is not published to any channel. How would you make it available to other users? Review the [documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels?tabs=web#configure-channels) to understand how this can be achieved.
+- Are there any other connector actions that could be incorporated into the topic to further enhance its capabilities? For example, could you capture the contents of the generated email back into Dataverse?
 
 **Congratulations, you've finished Lab 4** 🥳
