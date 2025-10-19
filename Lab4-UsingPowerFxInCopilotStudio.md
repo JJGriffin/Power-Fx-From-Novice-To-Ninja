@@ -6,7 +6,7 @@ In this lab, we will look at how Power Fx can be used within the context of [Cop
 
 It has been six months since you deployed your Power Apps solution to manage Contacts within Wingtip Toys. The business has been very happy with the solution, but they are now more actively exploring generative AI capabilities and how these can be integrated into the solution you built.
 
-You have identified that a good starting point would be to build a custom AI agent using Copilot Studio that can answer questions about the Contacts stored in the Dataverse table. In addition, the business would like to automatically generate email drafts to send to Contacts based on their birthday. Using Power Fx, you will be able to not only to detect when it is the contact's current birthday and [set this to a variable value](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-power-fx), but also use [dynamic Power Fx expressions](https://learn.microsoft.com/en-us/ai-builder/add-inputs-prompt#power-fx-input) to identify the current day and provide the contact with a fun fact relating to their birthday.
+You have identified that a good starting point would be to build a custom AI agent using Copilot Studio that can answer questions about the Contacts stored in the Dataverse table. In addition, the business would like to generate email drafts to send to Contacts based on their birthday. Using Power Fx, you will be able to not only to detect when it is the contact's current birthday and [set this to a variable value](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-power-fx), but also use [dynamic Power Fx expressions](https://learn.microsoft.com/en-us/ai-builder/add-inputs-prompt#power-fx-input) to identify the current day and provide the contact with some interesting facts relating to their birthday. Power Fx will be a key component in allowing us to achieve all of this, and more.
 
 ## Instructions
 
@@ -15,8 +15,8 @@ In this lab, you will do the following:
 - Create a custom AI agent using Copilot Studio.
 - Add a custom topic that can manually generate an email draft to send to a Contact, based on their birthday.
 - Create a custom prompt that can be orchestrated from the topic created above, to handle the email draft generation.
-- Implement the orchestration of the custom prompt, based on a defined schedule.
-- Test the new AI agent and custom prompt.
+- Finalise the topic configuration by taking the email draft and sending it (for the purposes of this lab, we will send the email to our own account).
+- Test agent and custom prompt, before publishing into the demo website.
 
 This lab will take approximately 30 minutes to complete.
 
