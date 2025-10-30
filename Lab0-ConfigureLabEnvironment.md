@@ -182,7 +182,7 @@ An authentication profile allows us to connect to one, or several, Dataverse env
 
 ## Exercise 5: Setup a Publisher and Solution as the environment default
 
-1. Open a new browser tab and navigate to the [Power Apps Maker Portal](https://make.powerapps.com). Sign in using the same credentials used to create the developer environment in Exercise 1, if prompted.
+1. Navigate back to the [Power Apps Maker Portal](https://make.powerapps.com) tab that you left opened at the end of Exercise 1; otherwise, open a new browser tab and navigate there now. Sign-in again if prompted using your lab credentials.
 2. In the **Power Apps Maker Portal**, click on **Solutions** from the left-hand navigation menu:
    
     ![](Images/Lab0-ConfigureLabEnvironment/E5_1.png)
