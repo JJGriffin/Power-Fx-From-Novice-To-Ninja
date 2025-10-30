@@ -37,50 +37,53 @@ Developer environments allow for any Microsoft 365 user (subject to any tenant l
 
 3. When prompted, sign in using your work / Microsoft 365 credentials.
 
-4. You will be automatically redirected to the [Power Apps Maker Portal](https://make.powerapps.com). This may take several minutes to complete.
-
-5. Once the Maker portal loads, a new development environment will have been created for you automatically and will have loaded. You can validate this by checking the following:
-   - A banner message reading **This is a developer environment and not meant for production use** is visible on the screen.
-   - When selecting the list of Environments, the current environment is shown as **\<Your Name\>'s Environment**.
+4. If you are prompted with a **Welcome to Power Apps** dialog, click on **Get started**:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_3.png)
 
-6. Open a new browser tab and navigate to the [Power Platform Admin Center](https://aka.ms/ppac). Sign in using your work / Microsoft 365 credentials, if prompted.
-
-7. In the left-hand navigation menu, click on **Manage** and then select **\<Your Name\>'s Environment** from the list:
+5. You will be automatically redirected to the [Power Apps Maker Portal](https://make.powerapps.com). This may take several minutes to complete.
+6. Once the Maker portal loads, a new development environment will have been created for you automatically and will have loaded. You can validate this by checking the following:
+   - A banner message reading **This is a developer environment and not meant for production use** is visible on the screen.
+   - When selecting the list of Environments, the current environment is shown as **\<Your Name\>'s Environment**.
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_4.png)
 
-8. In the environment settings page, click on **Enable Managed Environments**:
+7. Open a new browser tab and navigate to the [Power Platform Admin Center](https://aka.ms/ppac). Sign in using your work / Microsoft 365 credentials, if prompted.
+
+8. In the left-hand navigation menu, click on **Manage** and then select **\<Your Name\>'s Environment** from the list:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_5.png)
 
-9. In the **Enable Managed Environments** dialog, click on **Enable**:
+9. In the environment settings page, click on **Enable Managed Environments**:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_6.png)
 
-10. Verify that the environment was enabled successfully:
+10. In the **Enable Managed Environments** dialog, click on **Enable**:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_7.png)
+
+11. Verify that the environment was enabled successfully:
+
+    ![](Images/Lab0-ConfigureLabEnvironment/E1_8.png)
 
 > [!NOTE]
 > Enabling Managed Environments will allow us to use the [Model Context Protocol (MCP) server for Dataverse](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-mcp), but an additional step is required to finalise the configuration. We will do this next.
 >
 > Managed Environments provide enhanced governance and management capabilities for Power Platform environments, including the ability to use [Pipelines](https://learn.microsoft.com/en-us/power-platform/alm/pipelines), [configure welcome screens for makers](https://learn.microsoft.com/en-us/power-platform/admin/welcome-content) and more. Keep in mind, that once enabled, all users accessing the environment will need to be assigned with a Power Apps license. 
 
-11. On the ribbon, select **Settings**:
-
-    ![](Images/Lab0-ConfigureLabEnvironment/E1_8.png)
-
-12. On the **Settings** page, expand the **Product** heading and then select **Features**:
+12. On the ribbon, select **Settings**:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_9.png)
 
-13. On the **Features** page, scroll down to the **Dataverse Model Context Protocol(MCP)** heading and toggle the switch to **On**. Then, click on **Save** in the bottom right-hand corner of the screen:
+13. On the **Settings** page, expand the **Product** heading and then select **Features**:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_10.png)
 
-14. Close the browser tab and return to the Power Apps Maker Portal. Leave the Maker Portal open, as we will return to it in later exercises.
+14. On the **Features** page, scroll down to the **Dataverse Model Context Protocol(MCP)** heading and toggle the switch to **On**. Then, click on **Save** in the bottom right-hand corner of the screen:
+
+    ![](Images/Lab0-ConfigureLabEnvironment/E1_11.png)
+
+15. Close the browser tab and return to the Power Apps Maker Portal. Leave the Maker Portal open, as we will return to it in later exercises.
 
 > [!IMPORTANT]
 > The Dataverse MCP server is currently in preview. Preview features are not intended for production use and may be subject to change.
