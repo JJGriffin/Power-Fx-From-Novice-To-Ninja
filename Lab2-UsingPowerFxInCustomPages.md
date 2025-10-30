@@ -953,7 +953,7 @@ As your custom page is deployed and used over time, performance issues may arise
 
 For this exercise, we will skip working with the Monitor; instead, we will simulate a scenario involving [delegation and query limits](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/delegation-overview) by importing some additional Contact data into our Dataverse environment. We will see how this behaviour affects our app at runtime.
 
-1. Download the [ContactData.csv](/PowerFxFromNoviceToNinja/Resources/Lab2-UsingPowerFxInCustomPages/Contacts.csv) file to your local machine.
+1. Download the [ContactData.csv](/Resources/Lab2-UsingPowerFxInCustomPages/Contacts.csv) file to your local machine.
 2. Open a new browser tab and navigate to the [Power Apps Maker Portal](https://make.powerapps.com).
 3. In the **Power Apps Maker Portal**, click on **Tables** from the left-hand navigation menu and then click on **Import** -> **Import Data**:
 
