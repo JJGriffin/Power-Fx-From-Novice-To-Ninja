@@ -485,7 +485,7 @@ This lab will take approximately 30 minutes to complete.
 
     ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_9.png)
 
-12. Navigate to your email inbox and verify that you have received the birthday email. It might take several minutes for the email to arrive.
+12. Navigate to your email inbox and verify that you have received the birthday email. It might take several minutes for the email to arrive, and the email may arrive in your Junk/Spam folder, so be sure to check there if you don't see it in your main inbox. The email should resemble the screenshot below:
 
     ![](Images/Lab4-UsingPowerFxInCopilotStudio/E5_10.png)
 
