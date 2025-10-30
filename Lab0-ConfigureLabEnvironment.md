@@ -58,6 +58,9 @@ Developer environments allow for any Microsoft 365 user (subject to any tenant l
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_6.png)
 
+> [!IMPORTANT]
+> If you do not see the **Enable Managed Environments** option, then it's because you do not have the **Power Platform Administrator** role assigned to your user account. Speak to your instructor for further assistance if you are using an environment provided by them.
+
 10. In the **Enable Managed Environments** dialog, click on **Enable**:
 
     ![](Images/Lab0-ConfigureLabEnvironment/E1_7.png)
