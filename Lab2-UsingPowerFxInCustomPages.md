@@ -955,7 +955,7 @@ For this exercise, we will skip working with the Monitor; instead, we will simul
 
 1. Download the [ContactData.csv](/Resources/Lab2-UsingPowerFxInCustomPages/Contacts.csv) file to your local machine.
 2. Open a new browser tab and navigate to the [Power Apps Maker Portal](https://make.powerapps.com).
-3. In the **Power Apps Maker Portal**, click on **Tables** from the left-hand navigation menu and then click on **Import** -> **Import Data**:
+3. In the **Power Apps Maker Portal**, click on **Tables** from the left-hand navigation menu and then click on **Import** -> **Import data with Dataflows**:
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E9_1.png)
 
@@ -968,6 +968,9 @@ For this exercise, we will skip working with the Monitor; instead, we will simul
     ![](Images/Lab2-UsingPowerFxInCustomPages/E9_3.png)
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E9_4.png)
+
+> [!IMPORTANT]
+> If you receive a warning message relating to licensing or having not used OneDrive for Business previously, click on **Back**, open a new browser tab and navigate to [OneDrive for Business](https://m365.cloud.microsoft/onedrive/). Sign in with your work or school account if prompted. Once done, return to the previous tab with the Maker portal and repeat steps 4-5.
 
 6. On the **Preview file data** screen, review the data that will be imported and then click on **Next**:
 
@@ -1039,10 +1042,10 @@ However, there are scenarios where delegation is not supported, even with the Da
 4. Adjust the formula of the **Items** property on the **Contact Gallery** control to introduce a scenario where delegation will no longer be supported:
     
     ```
-    Switch('Contact Filter'.SelectedText.Value, 
+    Switch('Contact Filter'.Selected.Value,
         "All", Sort(Contacts, 'Full Name', SortOrder.Ascending),
-        "Internal", Sort(Filter(Contacts, 'External Contact?' = 'External Contact? (Contacts)'.Internal), 'Full Name', SortOrder.Ascending),
-        "External", Sort(Filter(Contacts, 'External Contact?' = 'External Contact? (Contacts)'.External), 'Full Name', SortOrder.Ascending)
+        "Internal", Sort(Filter(Contacts, If(IsBlank('External Contact?'), 'External Contact?', 'External Contact?') = 'External Contact? (Contacts)'.Internal), 'Full Name', SortOrder.Ascending),
+        "External", Sort(Filter(Contacts, If(IsBlank('External Contact?'), 'External Contact?', 'External Contact?') = 'External Contact? (Contacts)'.External), 'Full Name', SortOrder.Ascending)
     )
     ```
 
@@ -1058,7 +1061,7 @@ However, there are scenarios where delegation is not supported, even with the Da
 6. Fix the delegation issue by reverting the formula in the gallery **Items** property:
 
     ```
-    Switch('Contact Filter'.SelectedText.Value, 
+    Switch('Contact Filter'.Selected.Value,
         "All", Sort(Contacts, 'Full Name', SortOrder.Ascending),
         "Internal", Sort(Filter(Contacts, 'External Contact?' = 'External Contact? (Contacts)'.Internal), 'Full Name', SortOrder.Ascending),
         "External", Sort(Filter(Contacts, 'External Contact?' = 'External Contact? (Contacts)'.External), 'Full Name', SortOrder.Ascending)
