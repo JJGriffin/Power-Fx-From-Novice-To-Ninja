@@ -226,7 +226,7 @@ This lab will take approximately 60 minutes to complete.
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E2_24.png)
 
-21. In the **Add a field** dialog, search for and tick the box next to the **Full Name** field:
+21. In the **Add a field** dialog, search for and tick the box next to the **First Name** field:
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E2_25.png)
 
@@ -266,7 +266,7 @@ This lab will take approximately 60 minutes to complete.
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E2_31.png)
 
-30. On the **Contact Form** screen, click on the **Insert** tab, and then search for and select the **Back arrow** control:
+30. On the **Contact Form** screen, click on the **Insert** tab, and then search for and select the **Back arrow** icon.
 
 31. Rename the newly inserted **Arrow1** control to **Back Arrow**:
 
@@ -307,7 +307,7 @@ This lab will take approximately 60 minutes to complete.
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E2_39.png)
 
-38. On the **Contact Form** screen, click on the **Insert** tab, and then search for and select the **Label** control:
+38. On the **Contact Form** screen, click on the **Insert** tab, and then search for and select the **Text label** control:
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E2_40.png)
 
@@ -394,7 +394,7 @@ Let's proceed to implement the functionality in the order described above, and t
 > [!IMPORTANT]
 > `Back()` is a shorthand function that can be used to return the user to the previous screen they were on. In this context, it would also be valid to use `Navigate('Contact Screen')` to achieve the same result.
 
-9. With the **ContactForm** control selected, click on the **6 selected** button in the properties pane:
+9. With the **ContactForm** control selected, click on **Edit fields** in the properties pane:
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E3_7.png)
 
@@ -406,7 +406,7 @@ Let's proceed to implement the functionality in the order described above, and t
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E3_9.png)
 
-12. Click on the text **Add an item from the insert pane** and then select **Label** from the **Insert** pane:
+12. Click on the text **Add an item from the insert pane** and then select **Text label** from the **Insert** pane:
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E3_10.png)
 
@@ -462,7 +462,7 @@ To display weather information for the Contact's location, we will create a Powe
 Note that it would be possible to add the MSN Weather connector directly into the app, and then use this to achieve the same outcome. We will use Power Automate in this instance to demonstrate the integration capabilities between different areas of the Power Platform, and so you can familliarize yourself with the approaches to follow when calling a cloud flow from a canvas app.
 
 1. In the `Lab 2` custom page, navigate to the **Contact Screen** screen in the tree view.
-2. On the right hand-side of the screen, select the **Power Automate** icon
+2. On the left hand-side of the screen, select the **Power Automate** icon
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E4_1.png)
 
@@ -906,7 +906,11 @@ In this exercise, you will run the App Checker tool against the `Lab 2` custom p
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E8_15.png)
 
-16. Select the **Contact Gallery** control and adjust the **Items** property to filter the gallery based on the selected value in the **Contact Filter** control. Use the following formula:
+16. To ensure the radio buttons display the correct value, click on **Edit** under the **Fields** heading in the control property, then click **+ Add field**. Select the **Value** column and then press **Add**:
+
+    ![](Images/Lab2-UsingPowerFxInCustomPages/E8_16.png)
+
+17. Select the **Contact Gallery** control and adjust the **Items** property to filter the gallery based on the selected value in the **Contact Filter** control. Use the following formula:
 
     ```
     Switch('Contact Filter'.Selected.Value, 
@@ -916,15 +920,15 @@ In this exercise, you will run the App Checker tool against the `Lab 2` custom p
     )
     ```
 
-    ![](Images/Lab2-UsingPowerFxInCustomPages/E8_16.png)
-
-15. Press the **Play** icon in the top right corner of the screen to test the custom page. Select the different options from the **Contact Filter** control and confirm that the list of Contacts in the gallery updates accordingly. Close the player when you are finished testing:
-
     ![](Images/Lab2-UsingPowerFxInCustomPages/E8_17.png)
+
+18. Press the **Play** icon in the top right corner of the screen to test the custom page. Select the different options from the **Contact Filter** control and confirm that the list of Contacts in the gallery updates accordingly. Close the player when you are finished testing:
 
     ![](Images/Lab2-UsingPowerFxInCustomPages/E8_18.png)
 
-16. Currently, the gallery is returning the data in an inconsistent order. Adjust the formula for the **Items** property on the **Contact Gallery** to include the `Sort()` function. Use the following formula:
+    ![](Images/Lab2-UsingPowerFxInCustomPages/E8_19.png)
+
+19. Currently, the gallery is returning the data in an inconsistent order. Adjust the formula for the **Items** property on the **Contact Gallery** to include the `Sort()` function. Use the following formula:
 
     ```
     Switch('Contact Filter'.Selected.Value, 
@@ -934,14 +938,14 @@ In this exercise, you will run the App Checker tool against the `Lab 2` custom p
     )
     ```
 
-    ![](Images/Lab2-UsingPowerFxInCustomPages/E8_19.png)
-
-17. Press the **Play** icon in the top right corner of the screen to test the custom page. Select the different options from the **Contact Filter** control and confirm that the list of Contacts is now sorted in ascending order. Close the player when you are finished testing:
-
     ![](Images/Lab2-UsingPowerFxInCustomPages/E8_20.png)
 
-18. Click on the **Save** icon to save all changes to the custom page.
-19. Click on the **Back** button to exit the canvas designer.
+20. Press the **Play** icon in the top right corner of the screen to test the custom page. Select the different options from the **Contact Filter** control and confirm that the list of Contacts is now sorted in ascending order. Close the player when you are finished testing:
+
+    ![](Images/Lab2-UsingPowerFxInCustomPages/E8_21.png)
+
+21. Click on the **Save** icon to save all changes to the custom page.
+22. Click on the **Back** button to exit the canvas designer.
 
 ## Exercise 9: Diagnosing and Resolving Performance Issues
 
