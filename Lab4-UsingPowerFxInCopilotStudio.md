@@ -262,11 +262,9 @@ This lab will take approximately 30 minutes to complete.
     Wonderful! Then today is the perfect day to send them an email 🥳 Give me a moment...
     ```
     
-    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_30.png)
-
 37. Verify that your topic now resembles the screenshot below. Click on **Save** to save your changes so far.
 
-    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_31.png)
+    ![](Images/Lab4-UsingPowerFxInCopilotStudio/E2_30.png)
 
 38. Leave the topic designer open, as we will continue working with it in Exercise 3.
 
@@ -383,7 +381,7 @@ This lab will take approximately 30 minutes to complete.
     **Subject**
 
     {Text(ParseJSON(Topic.varPromptResponse.text).emailSubject)}
-​
+
     **Email**
     
     {Text(ParseJSON(Topic.varPromptResponse.text).emailText)}
