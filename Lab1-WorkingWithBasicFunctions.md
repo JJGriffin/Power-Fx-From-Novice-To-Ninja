@@ -312,7 +312,7 @@ This lab will take approximately 30 minutes.
 > This optional exercise is for any student who encountered issues installing Visual Studio, the Power Platform Tools extension, or with the Power Fx REPL. If you did not encounter any issues, please skip ahead to Exercise 7.
 
 1. You should still be in the Power Apps studio for the canvas app created in Exercise 4. If not, navigate back to this now.
-2. In the designer window, with **Screen 1** selected, click on the **Insert** tab from the top menu, and then select **Label**:
+2. In the designer window, with **Screen 1** selected, click on the **Insert** tab from the top menu, and then select **Text label**:
    
     ![](Images/Lab1-WorkingWithBasicFunctions/E5_1.png)
 
@@ -550,7 +550,7 @@ This lab will take approximately 30 minutes.
 ## Exercise 7: Execute basic Power Fx functions in a canvas app
 
 1. You should still be in the Power Apps studio for the canvas app created in Exercise 4. If not, navigate back to this now.
-2. In the designer window, with **Screen 1** selected, click on the **Insert** tab from the top menu, and then select **Label**:
+2. In the designer window, with **Screen 1** selected, click on the **Insert** tab from the top menu, and then select **Text label**:
    
     ![](Images/Lab1-WorkingWithBasicFunctions/E7_1.png)
 
@@ -596,7 +596,7 @@ This lab will take approximately 30 minutes.
 
     ![](Images/Lab1-WorkingWithBasicFunctions/E7_7.png)
 
-9. Enter the following formula in the bar, which will initialise a collection with the same data as the gallery:
+9. Enter the following formula in the bar (or replace entirely any existing values), which will initialise a collection with the same data as the gallery:
 
     ```
     ClearCollect(
@@ -670,7 +670,7 @@ This lab will take approximately 30 minutes.
     ```
     Text(Sum(galleryData, Budget), "$#,###.00", "de-DE")
     ```
-20. The label will now display the correct sum of all Budget values, `5.250,00`, formatted with the correct EUR currency symbole for Germany:
+20. The label will now display the correct sum of all Budget values, `5.250,00`, formatted with the correct EUR currency symbol for Germany:
 
     ![](Images/Lab1-WorkingWithBasicFunctions/E7_14.png)
 
