@@ -123,7 +123,7 @@ This lab will take approximately 60 minutes to complete.
     ![](Images/Lab2-UsingPowerFxInCustomPages/E2_5.png)
 
 > [!IMPORTANT]
-> If you see no sample data in the gallery, then you may need to install this into your environment. Select the gear icon in the top right corner of the screen, and then click on **Advanced settings**. Next, click the chevron next to **Settings** and then select **Data Management**. On the **Data Management** screen, click on **Sample data** and then click on the **Install sample data** button. Installation may take a few minutes to complete. You can return to the canvas app and refresh the **Contacts** data source to see the sample data in the gallery. For further details on installing sample data, refer to the [Microsoft Learn article](https://learn.microsoft.com/en-us/power-platform/admin/add-remove-sample-data).
+> If you see no sample data in the gallery, then you may need to install this into your environment. Open the [Power Platform Admin Center](https://aka.ms/ppac) in a new browser tab, navigate to the environment settings, search for **Sample data** and then install the sample data by clicking **Install Sample Data**. Installation may take a few minutes to complete. You can return to the canvas app and refresh the **Contacts** data source to see the sample data in the gallery. For further details on installing sample data, refer to the [Microsoft Learn article](https://learn.microsoft.com/en-us/power-platform/admin/add-remove-sample-data).
 
 ![](Images/Lab2-UsingPowerFxInCustomPages/E2_6.png)
 
